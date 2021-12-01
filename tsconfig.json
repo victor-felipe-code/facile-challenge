@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "strictNullChecks": true,
+    "lib": ["es6"],
+    "typeRoots": ["./src/@types", "node_modules/@types"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "paths": {
+      "@utils/*": ["./src/utils/*"],
+      "@prismaClient/*": ["./src/prisma/*"],
+      "@auth/*": ["./src/auth/*"],
+      "@error/*": ["./src/error/*"],
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test", "jest"]
+}
