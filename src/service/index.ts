@@ -13,6 +13,7 @@ export const serviceCreate = async (name: string) => {
     };
   }
   const resultModel = await modelCreateName(encrypt(name));
+  console.log("result model create -----   ", resultModel);
   return {
     statusCode: 201,
     created: {
@@ -31,6 +32,7 @@ export const serviceGetById = async (id: string) => {
     };
   }
   const resultModel = await modelGetNameById(Number(id));
+  console.log("result get  - ", resultModel);
   if (!resultModel?.name || !resultModel?.id) {
     return {
       statusCode: HttpStatusCode.NOT_FOUND,
@@ -41,6 +43,7 @@ export const serviceGetById = async (id: string) => {
     };
   }
   const textDecrypted = decrypt(resultModel.name);
+  console.log("result decript  - ", textDecrypted);
   return {
     statusCode: 200,
     content: {

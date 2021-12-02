@@ -26,6 +26,7 @@ const serviceCreate = async name => {
   }
 
   const resultModel = await (0, _model.modelCreateName)((0, _crypto.encrypt)(name));
+  console.log("result model create -----   ", resultModel);
   return {
     statusCode: 201,
     created: {
@@ -48,6 +49,7 @@ const serviceGetById = async id => {
   }
 
   const resultModel = await (0, _model.modelGetNameById)(Number(id));
+  console.log("result get  - ", resultModel);
 
   if (!(resultModel !== null && resultModel !== void 0 && resultModel.name) || !(resultModel !== null && resultModel !== void 0 && resultModel.id)) {
     return {
@@ -60,6 +62,7 @@ const serviceGetById = async id => {
   }
 
   const textDecrypted = (0, _crypto.decrypt)(resultModel.name);
+  console.log("result decript  - ", textDecrypted);
   return {
     statusCode: 200,
     content: {
