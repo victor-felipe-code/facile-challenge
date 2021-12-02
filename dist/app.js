@@ -13,7 +13,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _helmet = _interopRequireDefault(require("helmet"));
 
-var _middleware = require("./middleware");
+var _error = require("./middleware/error");
 
 var _routes = require("./routes");
 
@@ -25,4 +25,4 @@ app.use((0, _helmet.default)());
 app.use((0, _cors.default)());
 app.use(_express.default.json());
 app.use(_routes.router);
-app.use(_middleware.errorDefault);
+app.use(_error.errorDefault);
