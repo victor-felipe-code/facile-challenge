@@ -1,0 +1,76 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "ts": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint","prettier", "import", "eslint-plugin-import-helpers"],
+  "ignorePatterns": ["node_modules", ".env"],
+  "rules": {
+    "no-use-before-define": ["error", { "variables": false }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/**/*.spec.ts", "src/tests/**/*"]}],
+    "import/no-unresolved": "off",
+    "prettier/prettier": "error",
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
+    "no-shadow": [
+      "off",
+      { "builtinGlobals": false, "hoist": "functions", "allow": [] }
+    ],
+    "@typescript-eslint/no-shadow": ["off"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always", // new line between groups
+        "groups": [
+          "module",
+          "/^@server\/shared/",
+          "/^@/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "directory": "packages/server/*/tsconfig.json",
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}
