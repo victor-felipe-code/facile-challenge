@@ -3,7 +3,7 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 
-import { errorDefault } from "./middleware";
+import { errorDefault } from "./middleware/error";
 import { router } from "./routes";
 
 const app = express();

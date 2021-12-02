@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
 
-import { HttpStatusCode, MESSAGE_CUSTOM } from "../helpers";
+import { HttpStatusCode } from "../helpers/statusCode";
+import { MESSAGE_CUSTOM } from "../helpers/statusMessage";
 
 type ErrorRequestMiddlewares = ErrorRequestHandler &
   Error & {
