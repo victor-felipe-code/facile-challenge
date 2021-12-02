@@ -1,0 +1,1 @@
+export { errorDefault } from "./error";
