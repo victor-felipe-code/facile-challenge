@@ -4,6 +4,7 @@ import { controllerCreate, controllerGetById } from "./controller";
 
 const router = express.Router();
 
+// test
 router.get("/", (req: Request, res: Response) => {
   res.status(200).json({ message: "OK" });
 });

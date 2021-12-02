@@ -1,39 +1,12 @@
-import validator from "validator";
-
-import { HttpStatusCode, MESSAGE_CUSTOM, decrypt, encrypt } from "../helpers";
+import {
+  decrypt,
+  encrypt,
+  validateId,
+  validateString,
+  HttpStatusCode,
+  MESSAGE_CUSTOM,
+} from "../helpers";
 import { modelCreateName, modelGetNameById } from "../model";
-
-const validateString = (phrase: string) => {
-  if (!phrase.trim()) {
-    return {
-      error: {
-        code: "E_VALIDATION_FAILURE",
-        message: MESSAGE_CUSTOM.REQUIRED_NAME,
-      },
-    };
-  }
-  return { ok: true };
-};
-
-const validateId = (id: string) => {
-  if (!id) {
-    return {
-      error: {
-        code: "E_VALIDATION_FAILURE",
-        message: MESSAGE_CUSTOM.REQUIRED_ID,
-      },
-    };
-  }
-  if (!validator.isNumeric(id)) {
-    return {
-      error: {
-        code: "E_VALIDATION_FAILURE",
-        message: MESSAGE_CUSTOM.INVALID_ID,
-      },
-    };
-  }
-  return { ok: true };
-};
 
 export const serviceCreate = async (name: string) => {
   const resultValidate = validateString(name);
@@ -54,7 +27,6 @@ export const serviceCreate = async (name: string) => {
 };
 
 export const serviceGetById = async (id: string) => {
-  console.log("vazio   ", id);
   const resultValidate = validateId(id);
   if (!resultValidate?.ok) {
     return {
@@ -67,7 +39,7 @@ export const serviceGetById = async (id: string) => {
     return {
       statusCode: HttpStatusCode.NOT_FOUND,
       message: {
-        code: "bllblbl",
+        code: "E_VALIDATION_FAILURE",
         message: MESSAGE_CUSTOM.ID_NOT_EXISTS,
       },
     };

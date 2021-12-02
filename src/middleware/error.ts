@@ -17,7 +17,6 @@ export const errorDefault = async (
   res: Response,
   _next: NextFunction
 ) => {
-  console.log(error);
   if (error.statusCode && error.message) {
     return res.status(error.statusCode).json(error.message);
   }
