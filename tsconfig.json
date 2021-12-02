@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "strictNullChecks": true,
-    "lib": ["es6"],
+    "lib": ["es5"],
     "typeRoots": ["./src/@types", "node_modules/@types"],
     "outDir": "./dist",
     "rootDir": "./src",
