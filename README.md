@@ -41,13 +41,13 @@ $ npm install
   # DATABASE_URL="postgresql://<nome do usuário>:<senha do usuário>@localhost:5432/encrypted?schema=public"
   # SECRET_KEY=ABC123
 
-# Encerre qualquer aplicação que esteja utilizando a porta 3000.
+# Encerre qualquer aplicação que esteja utilizando a porta 3000
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev:prisma
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 # Para salvar uma frase no banco utilize a rota post <http://localhost:3000/encrypts>, no body da requisição adicione o seguinte { "name": "coloque sua string aqui" }
-# Para consultar utilize a rota get <<http://localhost:3000/encrypts/:id>.
+# Para consultar utilize a rota get <http://localhost:3000/encrypts/:id>.
 ```
 
 ### 🛠 Tecnologias
