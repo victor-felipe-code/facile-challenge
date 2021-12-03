@@ -5,3 +5,6 @@ CREATE TABLE "encrypted_name" (
 
     CONSTRAINT "encrypted_name_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "encrypted_name_id_key" ON "encrypted_name"("id");
