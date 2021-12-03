@@ -24,6 +24,11 @@ para fazer as requisições no servidor você pode utilizar a extensão do vscod
 [Postman](https://www.postman.com/downloads/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
+## Utilizando o Back End em produção hospedado no Heroku
+  - Utilize as seguintes rotas
+    - Para inserir utilize a rota [POST] https://backend-facile-challenge.herokuapp.com/encrypts no body da requisição adicione o seguinte { "name": "coloque sua string aqui" }
+    - Para consultar utilizar a rota [GET] informando um id de um registro https://backend-facile-challenge.herokuapp.com/encrypts/:id,  
+
 ### 🎲 Rodando o Back End (servidor)
 
 ```bash
