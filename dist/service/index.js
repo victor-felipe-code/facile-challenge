@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.serviceGetById = exports.serviceCreate = void 0;
 
+var _console = _interopRequireDefault(require("console"));
+
 var _crypto = require("../helpers/crypto");
 
 var _statusCode = require("../helpers/statusCode");
@@ -14,6 +16,8 @@ var _statusMessage = require("../helpers/statusMessage");
 var _validation = require("../helpers/validation");
 
 var _model = require("../model");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const serviceCreate = async name => {
   const resultValidate = (0, _validation.validateString)(name);
@@ -26,7 +30,9 @@ const serviceCreate = async name => {
   }
 
   const resultModel = await (0, _model.modelCreateName)((0, _crypto.encrypt)(name));
-  console.log("result model create -----   ", resultModel);
+
+  _console.default.log("result model create -----   ", resultModel);
+
   return {
     statusCode: 201,
     created: {
@@ -49,7 +55,8 @@ const serviceGetById = async id => {
   }
 
   const resultModel = await (0, _model.modelGetNameById)(Number(id));
-  console.log("result get  - ", resultModel);
+
+  _console.default.log("result get  - ", resultModel);
 
   if (!(resultModel !== null && resultModel !== void 0 && resultModel.name) || !(resultModel !== null && resultModel !== void 0 && resultModel.id)) {
     return {
@@ -62,7 +69,9 @@ const serviceGetById = async id => {
   }
 
   const textDecrypted = (0, _crypto.decrypt)(resultModel.name);
-  console.log("result decript  - ", textDecrypted);
+
+  _console.default.log("result decript  - ", textDecrypted);
+
   return {
     statusCode: 200,
     content: {

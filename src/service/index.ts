@@ -1,3 +1,5 @@
+import console from "console";
+
 import { decrypt, encrypt } from "../helpers/crypto";
 import { HttpStatusCode } from "../helpers/statusCode";
 import { MESSAGE_CUSTOM } from "../helpers/statusMessage";

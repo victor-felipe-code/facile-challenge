@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.controllerGetById = exports.controllerCreate = void 0;
 
+var _console = _interopRequireDefault(require("console"));
+
 var _expressRescue = _interopRequireDefault(require("express-rescue"));
 
 var _service = require("../service");
@@ -17,7 +19,11 @@ const controllerCreate = (0, _expressRescue.default)(async (req, res, next) => {
   } = req.body;
   const resultService = await (0, _service.serviceCreate)(name);
 
-  if (resultService !== null && resultService !== void 0 && resultService.created) {
+  _console.default.log("CONTROLLER  CREATE ------   ", resultService);
+
+  if (resultService && resultService.created) {
+    _console.default.log("CONTROLLER  CREATE ------ IF  ", resultService);
+
     res.status(resultService.statusCode).json(resultService.created);
     return;
   }
@@ -31,7 +37,11 @@ const controllerGetById = (0, _expressRescue.default)(async (req, res, next) => 
   const id = (_req$params = req.params) === null || _req$params === void 0 ? void 0 : _req$params.id;
   const resultService = await (0, _service.serviceGetById)(id);
 
-  if (resultService !== null && resultService !== void 0 && resultService.content) {
+  _console.default.log("CONTROLLER  get ------   ", resultService);
+
+  if (resultService && resultService.content) {
+    _console.default.log("CONTROLLER  get ------  IF ", resultService);
+
     res.status(resultService === null || resultService === void 0 ? void 0 : resultService.statusCode).json(resultService.content);
     return;
   }
