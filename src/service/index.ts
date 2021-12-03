@@ -1,5 +1,3 @@
-import console from "console";
-
 import { decrypt, encrypt } from "../helpers/crypto";
 import { HttpStatusCode } from "../helpers/statusCode";
 import { MESSAGE_CUSTOM } from "../helpers/statusMessage";
@@ -15,7 +13,7 @@ export const serviceCreate = async (name: string) => {
     };
   }
   const resultModel = await modelCreateName(encrypt(name));
-  console.log("result model create -----   ", resultModel);
+
   return {
     statusCode: 201,
     created: {
@@ -34,7 +32,6 @@ export const serviceGetById = async (id: string) => {
     };
   }
   const resultModel = await modelGetNameById(Number(id));
-  console.log("result get  - ", resultModel);
   if (!resultModel?.name || !resultModel?.id) {
     return {
       statusCode: HttpStatusCode.NOT_FOUND,
@@ -44,8 +41,8 @@ export const serviceGetById = async (id: string) => {
       },
     };
   }
-  const textDecrypted = decrypt(resultModel.name);
-  console.log("result decript  - ", textDecrypted);
+  const name = resultModel?.name || "";
+  const textDecrypted = decrypt(name);
   return {
     statusCode: 200,
     content: {

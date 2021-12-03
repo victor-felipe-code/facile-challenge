@@ -23,5 +23,5 @@ export const errorDefault = async (
   }
   return res
     .status(HttpStatusCode.INTERNAL_SERVER)
-    .json({ error: error.message || MESSAGE_CUSTOM.SERVER_ERROR });
+    .json({ error: MESSAGE_CUSTOM.SERVER_ERROR });
 };
