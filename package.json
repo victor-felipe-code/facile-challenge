@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prisma:config": "npx prisma generate && npx prisma db pull && npx prisma migrate dev",
     "start": "node dist/server.js",
     "build": "babel src prisma --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts"
+    "dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "dev:prisma": "npm run prisma:config && npm run dev"
   },
   "engines": {
     "node": "14.x",
