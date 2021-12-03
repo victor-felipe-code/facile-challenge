@@ -15,7 +15,7 @@ const errorDefault = async (error, _req, res, _next) => {
   }
 
   return res.status(_statusCode.HttpStatusCode.INTERNAL_SERVER).json({
-    error: _statusMessage.MESSAGE_CUSTOM.SERVER_ERROR
+    error: error.message || _statusMessage.MESSAGE_CUSTOM.SERVER_ERROR
   });
 };
 
