@@ -3,7 +3,7 @@ import validator from "validator";
 import { MESSAGE_CUSTOM } from "./statusMessage";
 
 export const validateString = (phrase: string) => {
-  if (!phrase.trim()) {
+  if (!phrase || !phrase.trim()) {
     return {
       error: {
         code: "E_VALIDATION_FAILURE",
