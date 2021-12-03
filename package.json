@@ -8,6 +8,10 @@
     "build": "babel src prisma --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/victor-felipe-code/facile-challenge.git"

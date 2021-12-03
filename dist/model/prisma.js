@@ -1,11 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.prismaClient = void 0;
-
-var _client = require("@prisma/client");
-
-const prismaClient = new _client.PrismaClient();
+const client_1 = require("@prisma/client");
+const prismaClient = new client_1.PrismaClient();
 exports.prismaClient = prismaClient;
