@@ -13,6 +13,7 @@ export const serviceCreate = async (name: string) => {
     };
   }
   const resultModel = await modelCreateName(encrypt(name));
+
   return {
     statusCode: 201,
     created: {
@@ -40,7 +41,8 @@ export const serviceGetById = async (id: string) => {
       },
     };
   }
-  const textDecrypted = decrypt(resultModel.name);
+  const name = resultModel?.name || "";
+  const textDecrypted = decrypt(name);
   return {
     statusCode: 200,
     content: {

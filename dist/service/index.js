@@ -26,7 +26,6 @@ const serviceCreate = async name => {
   }
 
   const resultModel = await (0, _model.modelCreateName)((0, _crypto.encrypt)(name));
-
   return {
     statusCode: 201,
     created: {
@@ -60,8 +59,8 @@ const serviceGetById = async id => {
     };
   }
 
-  const textDecrypted = (0, _crypto.decrypt)(resultModel.name);
-
+  const name = (resultModel === null || resultModel === void 0 ? void 0 : resultModel.name) || "";
+  const textDecrypted = (0, _crypto.decrypt)(name);
   return {
     statusCode: 200,
     content: {

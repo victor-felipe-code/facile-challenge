@@ -9,10 +9,9 @@ var _cryptoJs = _interopRequireDefault(require("crypto-js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const SECRET_KEY = process.env.SECRET_KEY; // Encrypt
+const SECRET_KEY = process.env.SECRET_KEY;
 
-const encrypt = text => _cryptoJs.default.AES.encrypt(JSON.stringify(text), SECRET_KEY).toString(); // Decrypt
-
+const encrypt = text => _cryptoJs.default.AES.encrypt(JSON.stringify(text), SECRET_KEY).toString();
 
 exports.encrypt = encrypt;
 
