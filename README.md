@@ -12,9 +12,8 @@
 - [x] Encriptar string
 - [x] Desencriptar string
 - [x] Persistir string encriptada no banco de dados
-- [x] Rotas post e get
 - [x] Validação de parametros da rota
-- [x] Deploy
+
 
 ### Pré-requisitos
 
