@@ -7,8 +7,6 @@
 
 ### Features
 
-- [x] Configuração servidor express
-- [x] Configuração orm prisma
 - [x] Encriptar string
 - [x] Desencriptar string
 - [x] Persistir string encriptada no banco de dados
